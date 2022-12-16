@@ -24,10 +24,15 @@ function submitData(name, email){
         responseId.textContent = data.id;
         display.appendChild(responseId);
     })
-    .catch((object) => {
+    .catch((error) => {
         const errorMessage = document.createElement('p');
-        errorMessage.textContent = object.message;
+        errorMessage.textContent = error.message;
         const display = document.getElementById('display');
         display.appendChild(errorMessage);
+        res.send(process.pid.toString());
     })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('loaded')
+    submitData('sam', 'sam@moringa.com')})
